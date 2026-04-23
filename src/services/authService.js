@@ -30,6 +30,7 @@ async function login({ email, password }) {
         user: {
             id: user.id,
             username: user.username,
+            shortname: user.shortname,
             email: user.email
         }
     };

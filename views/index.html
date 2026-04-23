@@ -2,44 +2,88 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
 </head>
 
-<body class="min-h-screen bg-gray-100 flex items-center justify-center">
+<body class="min-h-screen bg-white flex flex-col items-center justify-center px-6 relative overflow-hidden"
+    style="font-family:'Plus Jakarta Sans',sans-serif;">
 
-    <div class="bg-white p-8 rounded-2xl shadow-md w-full max-w-sm">
-        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Masuk Akun</h1>
+    <!-- Transparent SVG Background -->
+    <div class="absolute inset-0">
+        <svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" class="w-full h-full"
+            preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="1" fill="#1d4ed8" opacity="0.15" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dots)" />
+            <circle cx="100" cy="120" r="180" fill="#1d4ed8" opacity="0.04" />
+            <circle cx="1100" cy="580" r="220" fill="#1d4ed8" opacity="0.04" />
+            <circle cx="1050" cy="100" r="120" fill="#1d4ed8" opacity="0.05" />
+            <circle cx="200" cy="600" r="150" fill="#1d4ed8" opacity="0.03" />
+            <path d="M0 400 Q 300 300 600 400 T 1200 400" stroke="#1d4ed8" stroke-width="1" fill="none" opacity="0.1" />
+            <path d="M0 450 Q 300 350 600 450 T 1200 450" stroke="#1d4ed8" stroke-width="1" fill="none"
+                opacity="0.07" />
+            <path d="M0 500 Q 300 400 600 500 T 1200 500" stroke="#1d4ed8" stroke-width="0.5" fill="none"
+                opacity="0.05" />
+        </svg>
+    </div>
+
+    <!-- Logo -->
+    <div class="relative z-10 flex items-center gap-2 mb-8">
+        <div class="w-8 h-8 bg-blue-700 rounded-lg flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+        </div>
+        <span class="text-blue-700 font-bold text-lg tracking-tight">RehanSipaOTWKawin.IDR</span>
+    </div>
+
+    <!-- Login Card -->
+    <div
+        class="relative z-10 bg-blue-700 bg-opacity-10 border border-blue-200 rounded-2xl p-10 w-full max-w-sm shadow-2xl">
+
+        <h1 class="text-blue-800 text-3xl font-bold text-center mb-1">Masuk Akun</h1>
+        <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase text-center mb-8">Dashboard Aktif</p>
 
         <div id="alert" class="hidden mb-4 p-3 rounded-lg text-sm"></div>
 
-        <form id="loginForm" class="space-y-4">
+        <form id="loginForm" class="space-y-5">
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label class="block text-blue-500 text-xs font-semibold tracking-widest uppercase mb-2">Email</label>
                 <input type="email" id="email" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="email@contoh.com">
+                    class="w-full bg-white border border-blue-200 text-gray-800 placeholder-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    placeholder="email@contoh.com" />
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <label class="block text-blue-500 text-xs font-semibold tracking-widest uppercase mb-2">Password</label>
                 <input type="password" id="password" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="••••••••">
+                    class="w-full bg-white border border-blue-200 text-gray-800 placeholder-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                    placeholder="••••••••" />
             </div>
 
             <button type="submit"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-200">
+                class="w-full bg-blue-700 text-white font-semibold text-sm py-2.5 rounded-xl hover:bg-blue-800 transition-colors shadow mt-2">
                 Login
             </button>
         </form>
-
-        <p class="text-center text-sm text-gray-500 mt-4">
-            Belum punya akun? <a href="/register.html" class="text-blue-600 hover:underline">Daftar</a>
-        </p>
     </div>
+
+    <footer class="relative z-10 mt-8 text-center">
+        <p class="text-blue-400 text-xs font-medium">Design by <span class="text-blue-600 font-semibold">Rayhan</span>
+        </p>
+        <p class="text-blue-300 text-xs mt-0.5">@2026</p>
+    </footer>
 
     <script src="/js/login.js"></script>
 </body>

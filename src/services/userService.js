@@ -14,6 +14,7 @@ async function getUserProfile(userId){
         user: {
             id: user.id,
             username: user.username,
+            shortname: user.shortname,
             email: user.email
         }
     }
