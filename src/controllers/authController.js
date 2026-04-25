@@ -5,7 +5,17 @@ async function login(req, res) {
 
     try {
         const result = await authService.login({ email, password });
-        return res.json(result);
+        res.cookie('token', result.token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 10 * 60 * 1000
+        });
+
+        return res.json({
+            message: result.message,
+            user: result.user
+        });
     } catch (error) {
         if (error.statusCode) {
             return res.status(error.statusCode).json({ message: error.message });
@@ -16,6 +26,11 @@ async function login(req, res) {
     }
 }
 
+async function logout(req, res) {
+    res.clearCookie('token');
+    res.redirect('/');
+}
+
 module.exports = {
-    login
+    login, logout
 };

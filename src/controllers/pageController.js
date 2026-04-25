@@ -1,14 +1,21 @@
 const path = require('path');
 
 function getLoginPage(req, res) {
-    return res.sendFile(path.join(__dirname, '..', '..', 'views', 'index.html'));
+    if (req.user) return res.redirect('/dashboard');
+    res.sendFile(path.join(__dirname, '..', '..', 'views', 'login.html'));
 }
 
 function getDashboardPage(req, res) {
-    return res.sendFile(path.join(__dirname, '..', '..', 'views', 'dashboard.html'));
+    res.render('pages/dashboard', { title: 'Dashboard' });
+}
+
+function logout(req, res) {
+    res.clearCookie('token');
+    res.redirect('/');
 }
 
 module.exports = {
     getLoginPage,
-    getDashboardPage
+    getDashboardPage,
+    logout
 };

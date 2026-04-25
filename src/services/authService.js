@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 
 async function login({ email, password }) {
@@ -24,9 +25,19 @@ async function login({ email, password }) {
         throw error;
     }
 
+    const token = jwt.sign({
+        id: user.id,
+        username: user.username,
+        shortname: user.shortname,
+        email: user.email
+    },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: '10m' }
+    );
+
     return {
         message: 'Login berhasil',
-        token: `session-${user.id}`,
+        token,
         user: {
             id: user.id,
             username: user.username,

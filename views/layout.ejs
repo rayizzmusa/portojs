@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        RehanSipaOTWKawin - <%= typeof title !=='undefined' ? title : 'App' %>
+    </title>
+    <link rel="stylesheet" href="/css/tailwind.min.css" />
+</head>
+
+<body class="bg-white min-h-screen" style="font-family:'Plus Jakarta Sans',sans-serif;">
+
+    <%- include('partials/header') %>
+
+        <%- body %>
+
+            <%- include('partials/footer') %>
+
+</body>
+
+</html>
