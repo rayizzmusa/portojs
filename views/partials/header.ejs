@@ -1,3 +1,12 @@
+<%
+    const acronim = userName
+    ? userName.split(' ')
+        .map(w => w[0])
+        .join('')
+        .toUpperCase()
+    : '';
+%>
+
 <header class="bg-blue-700 fixed top-0 left-0 right-0 z-50 shadow-lg">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
@@ -17,7 +26,7 @@
             <button id="accountToggle"
                 class="flex items-center gap-3 bg-blue-600 hover:bg-blue-500 transition-colors px-3 py-2 rounded-xl">
                 <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                    <span class="text-blue-700 font-bold text-xs">RM</span>
+                    <span class="text-blue-700 font-bold text-xs" id="user-acronim"><%= acronim !=='undefined' ? acronim : '' %></span>
                 </div>
                 <div class="hidden sm:block text-left">
                     <p class="text-white text-sm font-semibold leading-none">
@@ -35,11 +44,6 @@
 
             <div id="dropdown"
                 class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-1 z-50">
-                <a href="#"
-                    class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">Profil
-                    Saya</a>
-                <a href="#"
-                    class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">Pengaturan</a>
                 <hr class="my-1 border-gray-100" />
                 <a href="/logout"
                     class="flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50">Keluar</a>

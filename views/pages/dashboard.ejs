@@ -40,7 +40,7 @@
             </div>
 
             <!-- Text -->
-            <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Dashboard Aktif</p>
+            <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-3">Dashboard</p>
             <h1 class="text-blue-800 text-4xl font-bold leading-tight mb-3">
                 Selamat Datang,<br />
                 <span class="text-blue-500">
@@ -71,7 +71,7 @@
             <div class="bg-blue-700 bg-opacity-10 border border-blue-200 rounded-2xl p-7 shadow-2xl">
                 <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-2">Total Tabungan Terkumpul
                 </p>
-                <p class="text-blue-800 text-4xl font-bold">--</p>
+                <p class="text-blue-800 text-4xl font-bold" id="main-savings"></p>
             </div>
 
             <!-- Per Orang: Rayhan & Syifa -->
@@ -86,7 +86,7 @@
                         </svg>
                     </div>
                     <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-1">Rayhan</p>
-                    <p class="text-blue-800 text-3xl font-bold">--</p>
+                    <p class="text-blue-800 text-3xl font-bold" id="rayhan-savings"></p>
                 </div>
 
                 <!-- Syifa -->
@@ -99,12 +99,12 @@
                         </svg>
                     </div>
                     <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-1">Syifa</p>
-                    <p class="text-blue-800 text-3xl font-bold">--</p>
+                    <p class="text-blue-800 text-3xl font-bold" id="syifa-savings"></p>
                 </div>
             </div>
 
             <div class="bg-blue-700 bg-opacity-10 border border-blue-200 rounded-2xl p-7 shadow-2xl">
-                <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Notifikasi Terakhir</p>
+                <p class="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">Aktivitas Terakhir</p>
 
                 <!-- Notifikasi 1 -->
                 <div class="flex items-start justify-between gap-4 pb-4 border-b border-blue-100">
@@ -139,14 +139,14 @@
                             <span class="text-blue-600 font-semibold">Rp 300.000</span>
                         </p>
                     </div>
-                    <p class="text-blue-500 text-xs whitespace-nowrap mt-0.5">22 Apr 2026<br />19:12</p>
+                    <p class="text-blue-500 text-xs whitespace-nowrap mt-0.5">22 Januari 2026<br />19:12</p>
                 </div>
 
                 <!-- Tombol -->
                 <div class="mt-5">
                     <a href="/notifikasi.html"
                         class="inline-flex items-center gap-2 border border-blue-300 text-blue-700 font-medium text-sm px-5 py-2 rounded-xl hover:bg-blue-50 transition-colors">
-                        Lihat Notifikasi
+                        Lihat Aktivitas
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
@@ -157,3 +157,5 @@
         </div>
     </div>
 </main>
+
+<script src="/js/saving.js"></script>
