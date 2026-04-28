@@ -6,7 +6,9 @@ function getLoginPage(req, res) {
 }
 
 function getDashboardPage(req, res) {
-    res.render('pages/dashboard', { title: 'Dashboard' });
+    res.render('pages/dashboard', {
+        title: 'Dashboard'
+    });
 }
 
 function logout(req, res) {

@@ -16,7 +16,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
         if (res.ok) {
             alertBox.className = 'mb-4 p-3 rounded-lg text-sm bg-green-100 text-green-700';
-            alertBox.textContent = 'Login berhasil! Mengalihkan...';
+            alertBox.textContent = data.message || 'Login berhasil';
             alertBox.classList.remove('hidden');
             setTimeout(() => {
                 window.location.href = '/dashboard'; // ← sekarang bisa jalan
