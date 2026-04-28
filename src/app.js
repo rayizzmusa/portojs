@@ -47,7 +47,11 @@ app.use('/api', authRoutes);
 app.use('/', webRoutes);
 
 app.use((req, res) => {
-    res.status(404).json({ message: 'Route tidak ditemukan' });
+    if (req.path.startsWith('/api')) {
+        res.status(404).json({ message: 'Endpoint API tidak ditemukan' });
+    } else {
+        res.redirect('/');
+    }
 });
 
 module.exports = app;

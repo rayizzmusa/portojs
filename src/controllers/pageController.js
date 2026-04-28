@@ -11,6 +11,12 @@ function getDashboardPage(req, res) {
     });
 }
 
+function getSavingFormPage(req, res) {
+    res.render('pages/addSaving', {
+        title: 'Tambah Tabungan'
+    });
+}
+
 function logout(req, res) {
     res.clearCookie('token');
     res.redirect('/');
@@ -19,5 +25,6 @@ function logout(req, res) {
 module.exports = {
     getLoginPage,
     getDashboardPage,
+    getSavingFormPage,
     logout
 };

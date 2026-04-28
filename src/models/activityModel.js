@@ -5,6 +5,11 @@ async function getLastTwoActivities() {
     return rows;
 }
 
+async function getInformation(type) {
+    const [rows] = await db.execute('SELECT information_temp FROM activity WHERE type = ? ORDER BY id DESC LIMIT 1;', [type]);
+    return rows[0] || null;
+}
+
 module.exports = {
     getLastTwoActivities
 };
