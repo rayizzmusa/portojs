@@ -15,16 +15,12 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         const data = await res.json();
 
         if (res.ok) {
-            alertBox.className = 'mb-4 p-3 rounded-lg text-sm bg-green-100 text-green-700';
-            alertBox.textContent = data.message || 'Login berhasil';
-            alertBox.classList.remove('hidden');
+            notyf.success(data.message || 'Login berhasil');
             setTimeout(() => {
                 window.location.href = '/dashboard'; // ← sekarang bisa jalan
-            }, 1000);
+            }, 2000);
         } else {
-            alertBox.className = 'mb-4 p-3 rounded-lg text-sm bg-red-100 text-red-700';
-            alertBox.textContent = data.message || 'Login gagal';
-            alertBox.classList.remove('hidden');
+            notyf.error(data.message || 'Login gagal');
         }
     } catch (err) {
         console.error(err);

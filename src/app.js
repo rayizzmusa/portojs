@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/notyf', express.static(path.join(__dirname, '..', 'node_modules/notyf')));
 
 app.use((req, res, next) => {
     try {
