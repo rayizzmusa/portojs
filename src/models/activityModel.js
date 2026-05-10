@@ -6,10 +6,17 @@ async function getLastTwoActivities() {
 }
 
 async function getInformation(type) {
-    const [rows] = await db.execute('SELECT information_temp FROM activity WHERE type = ? ORDER BY id DESC LIMIT 1;', [type]);
+    const [rows] = await db.execute('SELECT information_temp FROM activity_master WHERE type = ? ORDER BY id DESC LIMIT 1;', [type]);
     return rows[0] || null;
 }
 
+async function addActivity(userId, type, activity_message) {
+    const [rows] = await db.execute('INSERT INTO activities (user_id, type_activity, activity_message) VALUES (?, ?, ?)', [userId, type, activity_message]);
+    return rows;
+}
+
 module.exports = {
-    getLastTwoActivities
+    getLastTwoActivities,
+    getInformation,
+    addActivity
 };

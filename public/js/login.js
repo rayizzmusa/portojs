@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
             notyf.success(data.message || 'Login berhasil');
             setTimeout(() => {
                 window.location.href = '/dashboard'; // ← sekarang bisa jalan
-            }, 2000);
+            }, 1000);
         } else {
             notyf.error(data.message || 'Login gagal');
         }

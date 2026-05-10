@@ -5,11 +5,15 @@ async function getTotalByUserId(userId) {
     return Number(rows[0].total || 0);
 }
 
-async function addSaving(userId, nominals, message) {
-    const [rows] = await db.execute('INSERT INTO savings (user_id, type_activity, nominals, message) VALUES (?, ?, ?, ?)', [userId, 'pemasukan', nominals, message]);
+async function addSaving({ userId, nominal, message, connection = db }) {
+    const [rows] = await connection.execute(
+        'INSERT INTO savings (user_id, type_activity, nominals, message) VALUES (?, ?, ?, ?)',
+        [userId, 'pemasukan', nominal, message]
+    );
     return rows;
 }
 
 module.exports = {
-    getTotalByUserId
+    getTotalByUserId,
+    addSaving
 };

@@ -10,6 +10,21 @@ async function getLastTwoActivities(req, res) {
     }
 }
 
+async function getTypeActivity(req, res) {
+    try {
+        const typeActivity = await activityService.getTypeActivity(req.params.type);
+        return res.json(typeActivity);
+    } catch (err) {
+        if (err.statusCode) {
+            return res.status(err.statusCode).json({ message: err.message });
+        }
+
+        console.error(err);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
 module.exports = {
-    getLastTwoActivities
+    getLastTwoActivities,
+    getTypeActivity
 };
